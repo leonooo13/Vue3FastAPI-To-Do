@@ -5,9 +5,9 @@ from app.routers import authentication, task, user
 
 app = FastAPI()
 
-app.include_router(user.router)
-app.include_router(task.router)
-app.include_router(authentication.router)
+app.include_router(user.router, prefix="/api")
+app.include_router(task.router, prefix="/api")
+app.include_router(authentication.router, prefix="/api")
 
 app.add_middleware(
     CORSMiddleware,
