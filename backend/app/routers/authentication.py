@@ -127,7 +127,7 @@ async def get_new_access_token_from_refresh_token(
             headers={"WWW-Authenticate": "Bearer"},
         )
 
-    user: User | None = await user_repo.get_user_by_username_or_email(username)
+    user: User | None =  user_repo.get_user_by_username_or_email(username)
 
     if not user:
         raise HTTPException(
