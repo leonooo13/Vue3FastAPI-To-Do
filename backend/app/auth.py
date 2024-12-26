@@ -11,7 +11,7 @@ from app.models import User
 from app.repositories.user_repo import UserRepository
 
 oauth2_scheme = OAuth2PasswordBearer(
-    tokenUrl="user/jwt/create/", scheme_name="JWT"
+    tokenUrl="api/user/jwt/create/", scheme_name="JWT"
 )  # important path to get token
 
 
