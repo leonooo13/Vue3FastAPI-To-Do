@@ -1,69 +1,72 @@
-# Simple, yet powerfull app written using Vue 3 and FastAPI
+# 简单而强大的应用程序，使用 Vue 3 和 FastAPI 编写
 
 ---
 
-### Demo
+## 适合人群
+
+适合课程设计
+FastAPI的学习
+全栈开发的学习
+
+### 演示
 
 <p>https://www.stickydo.us</p>
 <a href="https://api.stickydo.us/docs">Swagger</a></p>
-<p>same frontend, but using <strong>DRF</strong> on backend https://django.stickydo.us | repo: https://github.com/notarious2/Vue3DRF-To-Do</p>
+<p>相同的前端，但使用 <strong>DRF</strong> 作为后端 https://django.stickydo.us | 仓库: https://github.com/notarious2/Vue3DRF-To-Do</p>
 
-### Frontend
-
-<ul>
-    <li>
-        <p>Latest <strong>Vue 3 Composition API</strong> Script Setup</p>
-    </li>
-    <li>
-        <p>Google oauth2 Authentication (access token retrieval) </p>
-    </li>
-    <li>
-        <p><strong>Drag and drop</strong> functionality to change priority of tasks thanks to <a href="https://github.com/SortableJS/vue.draggable.next">Vue Draggable Next</a></p>
-    </li>
-    <li>
-        <p>Date picker implemented using <a href="https://github.com/Vuepic/vue-datepicker">Vue Datepicker</a></p>
-    </li>
-    <li>
-        <p><strong>Pinia</strong> for state/store management</p>
-    </li>
-    <li>
-        <p><strong>Axios</strong> for making HTTP Requests, including advanced interceptors usage to <strong>refresh</strong> JWT tokens</p>
-    </li>
-    <li>
-        <p><strong>Google Analytics</strong> Integration including events</p>
-    </li>
-</ul>
-
-### Backend
+### 前端
 
 <ul>
     <li>
-        <p>FastAPI with Pydantic 2</p>
+        <p>最新的 <strong>Vue 3 Composition API</strong> 脚本设置</p>
     </li>
     <li>
-        <p>Async Postgres (<strong>asyncpg</strong>) with latest Async SQLAlchemy ORM</p>
+        <p>通过 <a href="https://github.com/SortableJS/vue.draggable.next">Vue Draggable Next</a> 实现的<strong>拖放</strong>功能以更改任务优先级</p>
     </li>
     <li>
-        <p>Google oauth2 Authentication (access token verification, user creation) </p>
+        <p>使用 <a href="https://github.com/Vuepic/vue-datepicker">Vue Datepicker</a> 实现的日期选择器</p>
     </li>
     <li>
-        <p>JWT refresh and access tokens for Authentication</p>
+        <p>使用 <strong>Pinia</strong> 进行状态/存储管理</p>
     </li>
     <li>
-        <p>Users may login using <strong>email</strong> or <strong>username</strong></p>
+        <p>使用 <strong>Axios</strong> 进行 HTTP 请求，包括使用高级拦截器来<strong>刷新</strong> JWT 令牌</p>
     </li>
     <li>
-        <p>Open API/Swagger documentation available <a href="https://api.stickydo.us/docs">Online</a></p>
-    </li>
-    <li>
-        <p>Linting and Formatting with <strong>Ruff</strong> with precommit hook</p>
-    </li>
-    <li>
-        <p>Package Management with <strong>Poetry</strong></p>
+        <p>集成 <strong>Google Analytics</strong> 包括事件</p>
     </li>
 </ul>
 
-<img src="images/todo_1.png" alt="Front image 1"/>
-<img src="images/todo_2.png" alt="Front image 2"/>
-<img src="images/todo_3.png" alt="Front image 3"/>
+### 后端
+
+<ul>
+    <li>
+        <p>使用 Pydantic 2 的 FastAPI</p>
+    </li>
+    <li>
+        <p>这是使用sqlite和sqlmodel进行数据库管理 </p>
+    </li>
+    <li>
+        <p>Google oauth2 认证（访问令牌验证，用户创建）</p>
+    </li>
+    <li>
+        <p>用于认证的 JWT 刷新和访问令牌</p>
+    </li>
+    <li>
+        <p>用户可以使用<strong>电子邮件</strong>或<strong>用户名</strong>登录</p>
+    </li>
+    <li>
+        <p>在线提供的 Open API/Swagger 文档 <a href="https://api.stickydo.us/docs">在线</a></p>
+    </li>
+    <li>
+        <p>使用 <strong>Black</strong> 进行代码检查和格式化</p>
+    </li>
+    <li>
+        <p>使用 <strong>UVoetry</strong> 进行包管理</p>
+    </li>
+</ul>
+
+<img src="images/todo_1.png" alt="前端图片 1"/>
+<img src="images/todo_2.png" alt="前端图片 2"/>
+<img src="images/todo_3.png" alt="前端图片 3"/>
 <img src="images/swagger.png" alt="Swagger"/>
