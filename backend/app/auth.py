@@ -5,8 +5,8 @@ import jwt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlmodel import Session
-from config import settings
-from app.database import get_session
+from config import settings as app_settings
+from app.database import get_session as get_db_session
 from app.models import User
 from app.repositories.user_repo import UserRepository
 
@@ -17,14 +17,14 @@ oauth2_scheme = OAuth2PasswordBearer(
 
 def get_current_user(
     access_token: str = Depends(oauth2_scheme),
-    db_session: Session = Depends(get_session),
+    db_session: Session = Depends(get_db_session),
 ) -> User:
     user_repo = UserRepository(db_session)
     try:
         payload = jwt.decode(
             access_token,
-            settings.JWT_ACCESS_SECRET_KEY,
-            algorithms=[settings.ENCRYPTION_ALGORITHM],
+            app_settings.JWT_ACCESS_SECRET_KEY,
+            algorithms=[app_settings.ENCRYPTION_ALGORITHM],
         )
         username: str = payload.get("sub")
         if not username:
@@ -72,12 +72,12 @@ def create_access_token(subject: str | Any, expires_delta: int = None) -> str:
         expires_delta = datetime.now() + expires_delta
     else:
         expires_delta = datetime.now() + timedelta(
-            minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES
+            minutes=app_settings.ACCESS_TOKEN_EXPIRE_MINUTES
         )
 
     to_encode = {"exp": expires_delta, "sub": str(subject)}
     encoded_jwt = jwt.encode(
-        to_encode, settings.JWT_ACCESS_SECRET_KEY, settings.ENCRYPTION_ALGORITHM
+        to_encode, app_settings.JWT_ACCESS_SECRET_KEY, app_settings.ENCRYPTION_ALGORITHM
     )
     return encoded_jwt
 
@@ -87,11 +87,11 @@ def create_refresh_token(subject: str | Any, expires_delta: int = None) -> str:
         expires_delta = datetime.utcnow() + expires_delta
     else:
         expires_delta = datetime.utcnow() + timedelta(
-            minutes=settings.REFRESH_TOKEN_EXPIRE_MINUTES
+            minutes=app_settings.REFRESH_TOKEN_EXPIRE_MINUTES
         )
 
     to_encode = {"exp": expires_delta, "sub": str(subject)}
     encoded_jwt = jwt.encode(
-        to_encode, settings.JWT_REFRESH_SECRET_KEY, settings.ENCRYPTION_ALGORITHM
+        to_encode, app_settings.JWT_REFRESH_SECRET_KEY, app_settings.ENCRYPTION_ALGORITHM
     )
     return encoded_jwt
